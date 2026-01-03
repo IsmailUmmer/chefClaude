@@ -1,0 +1,25 @@
+# Dependencies
+/node_modules
+/dist
+/build
+
+# Log files
+*.log
+firebase-debug.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor specific files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OSX specific files
+.DS_Store
