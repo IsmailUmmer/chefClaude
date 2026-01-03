@@ -1,6 +1,6 @@
 {
-  "name": "Scrim-s06ipeh",
-  "description": "https://scrimba.com/learn-react-c0e/~0zwk",
+  "name": "chefClaude",
+  "description": "my ai app",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -10,6 +10,8 @@
   "dependencies": {
     "react": "19.0.0-rc-8b08e99e-20240713",
     "react-dom": "19.0.0-rc-8b08e99e-20240713",
+    "@anthropic-ai/sdk": "0.27.3",
+    "@huggingface/inference": "4.13.5",
     "vite": "latest"
   },
   "devDependencies": {
