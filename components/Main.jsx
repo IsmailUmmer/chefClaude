@@ -1,17 +1,26 @@
 import React from "react"
-import IngredientsList from "./components/IngredientsList"
-import ClaudeRecipe from "./components/ClaudeRecipe"
-import {getRecipeFromMistral}  from "./ai"
+import IngredientsList from "./IngredientsList"
+import ClaudeRecipe from "./ClaudeRecipe"
+import { getRecipeFromMistral } from "../ai"
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState(
         ["all the main spices", "pasta", "ground beef", "tomato paste"]
     )
-    const [recipe, setRecipe] = React.useState()
+    const [recipe, setRecipe] = React.useState("")
+    const recipeSection = React.useRef(null)
+    React.useEffect(() => {
+        if (recipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({
+                behavior: 'smooth',
+                // block: 'start',
+            })
+        }
+    }, [recipe])
 
-   async function getRecipe() {
-      const generatedRecipe = await getRecipeFromMistral(ingredients)
-      setRecipe(generatedRecipe)
+    async function getRecipe() {
+        const generatedRecipe = await getRecipeFromMistral(ingredients)
+        setRecipe(generatedRecipe)
     }
 
     function addIngredient(formData) {
@@ -33,12 +42,13 @@ export default function Main() {
 
             {ingredients.length > 0 &&
                 <IngredientsList
+                    ref={recipeSection}
                     ingredients={ingredients}
                     getRecipe={getRecipe}
                 />
             }
 
-            {recipe && <ClaudeRecipe recipe={recipe}/>}
+            {recipe && <ClaudeRecipe recipe={recipe} />}
         </main>
     )
 }
