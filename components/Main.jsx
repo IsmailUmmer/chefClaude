@@ -11,9 +11,15 @@ export default function Main() {
     const recipeSection = React.useRef(null)
     React.useEffect(() => {
         if (recipe !== "" && recipeSection.current !== null) {
-            recipeSection.current.scrollIntoView({
-                behavior: 'smooth',
-                // block: 'start',
+            // recipeSection.current.scrollIntoView({
+            //     behavior: 'smooth',
+            //     block: 'start',
+            // })
+             //     this code works locally, but not on netify ,problem fixed, some iframe issue 
+             const yCoord = recipeSection.current.getBoundingClientRect().top + window.scrollY
+            window.scroll({
+                top: yCoord,
+                behavior: "smooth"
             })
         }
     }, [recipe])
