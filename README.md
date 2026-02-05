@@ -6,3 +6,5 @@ npm start
 ```
 
 Head over to https://vitejs.dev/ to learn more about configuring vite
+</br>
+⚠️do not spam this , i have very limited api calls only
